@@ -1,0 +1,28 @@
+Databases: given db name is->school
+show dbs
+use school
+db.dropDatabse()
+
+Collections : given collection name is-> students
+db.createCollection("students")
+show collections
+
+Documents:
+::::create:::::
+db.students.insertOne({name:"spongebob", house:"underwater", age:12})
+db.students.insertMany([{}, {}, {}])
+
+::::read:::::
+db.students.find()
+db.students.find().sort({name:1})  1->asc  -1->desc
+db.students.find().limit(1)
+db.students.find({name:'spongebob', age:12})
+db.students.find({age:12}, {name:true/false}) -> {Query}{Projection} query=search for those docs, projection=display only the passed fields
+
+::::update::::
+db.students.updateOne({name:"spongebob"}, {$set{age:27}) -> {filter}{update}
+db.students.updateOne({name:"spongebob"}, {$unset{age:}) ->unset removes a field from the document
+db.students.updateMany({}, {})
+db.students.deleteOne({})
+db.students.deleteMany({})
+
